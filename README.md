@@ -1,4 +1,4 @@
-#Readme Template firebase-auth
+# Readme Template firebase-auth
 La seguente app rappresenta un template che include le funzionalità:
 - registrazione
 - login 
