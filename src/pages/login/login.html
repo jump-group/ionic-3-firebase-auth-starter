@@ -1,0 +1,56 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!--
+    <ion-navbar>
+      <ion-title>login</ion-title>
+    </ion-navbar>
+  -->
+
+</ion-header>
+
+<ion-content padding text-center>
+  <ion-card>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+            <h1>Altrochè</h1>
+            <p>pane e vino</p>
+            <img src="../../assets/img/burger.png" style="width: 100px"/>
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+      <ion-card-content>
+          <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+              <ion-item >
+                <ion-label stacked>Email</ion-label>
+                <ion-input formControlName="email" type="email" placeholder="Email" [class.invalid]="!loginForm.controls.email.valid && blur"></ion-input>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label stacked>Password</ion-label>
+                <ion-input formControlName="password" type="{{type}}" placeholder="Password" [class.invalid]="!loginForm.controls.password.valid && blur"></ion-input>
+                <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()" class="showHidePw_btn"> <ion-icon name="md-eye"></ion-icon></button>
+                <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()" class="showHidePw_btn"> <ion-icon name="md-eye-off"></ion-icon></button>
+              </ion-item>
+      
+              <button ion-button block type="submit" [disabled]="!loginForm.valid" small class="btn_rounded"> Login </button>
+          </form>
+        
+          <div class = "row">
+              <div class = "col col-50"> <button ion-button block clear (click)="goToSignup()" >Registrati</button></div>
+              <div class = "col col-50">  <button ion-button block clear (click)="goToResetPassword()" >Password dimenticata?</button></div>
+          </div>
+    
+    
+        </ion-card-content>
+  </ion-card>
+
+  
+
+</ion-content>
