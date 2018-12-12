@@ -15,12 +15,12 @@ Per collegare l'applicazione con il proprio database di Firebase, è necessario 
 ```
 export const firebaseConfig = {
 	fire: {
-    apiKey: "xxxxxxxxxxxxxxxxxxxx",
-    authDomain: "xxxxxxxxxxxxxxxxxxxx.firebaseapp.com",
-    databaseURL: "https://xxxxxxxxxxxxxxxxxxxx.firebaseio.com",
-    projectId: "xxxxxxxxxxxxxxxxxxxx",
-    storageBucket: "xxxxxxxxxxxxxxxxxxxx.appspot.com",
-    messagingSenderId: "xxxxxxxxxxxxxxxxxxxx"
+        apiKey: "xxxxxxxxxxxxxxxxxxxx",
+        authDomain: "xxxxxxxxxxxxxxxxxxxx.firebaseapp.com",
+        databaseURL: "https://xxxxxxxxxxxxxxxxxxxx.firebaseio.com",
+        projectId: "xxxxxxxxxxxxxxxxxxxx",
+        storageBucket: "xxxxxxxxxxxxxxxxxxxx.appspot.com",
+        messagingSenderId: "xxxxxxxxxxxxxxxxxxxx"
 	}
 };
 ```
