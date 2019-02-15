@@ -7,6 +7,8 @@ The following app for Ionic 3 uses Firebase's database and authentication servic
 - Login.
 - Logout.
 - Password Recovery.
+- Change user email.
+- Change user password.
 - Easy email and password validation.
 
 When a user sign-in to the application, a record is created in the database under the `/userProfile` (editable) tree with the field `uid` (unique) as the key.
@@ -29,6 +31,7 @@ export const firebaseConfig = {
 	}
 };
 ```
+- Go to Firebase Auth panel -> Access methods -> enable `Email/password access`.
 - Run ```ionic serve``` command.
 
 :exclamation: :exclamation:
@@ -39,8 +42,10 @@ La seguente app per Ionic 3 utilizza il servizio di autenticazione e database di
 - Registrazione
 - Login 
 - Logout
-- Recupero password.
-- Validazione password ed email.
+- Recupero password
+- Cambio email
+- Cambio password
+- Validazione password ed email
 
 Quando un utente si registra nell'applicazione, viene creato un record all'interno del database nell'albero `/userProfile` (modificabile), con il campo `uid` (univoco) come chiave.
 
@@ -62,6 +67,7 @@ export const firebaseConfig = {
 	}
 };
 ```
+- Andare su Firebase -> Sviluppo -> Authentication -> Metodo di accesso -> `abilitare "Email/password"`.
 - Eseguire ```ionic serve```
 
 :exclamation: :exclamation:
