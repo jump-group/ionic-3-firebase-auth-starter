@@ -1,6 +1,9 @@
 
 # Readme Template firebase-auth
 
+![GitHub Logo](assets/img/ionic_logo.png)
+
+
 ## ENG
 The following app for Ionic 3 uses Firebase's database and authentication service and include the following features:
 - Registration.
@@ -33,7 +36,7 @@ export const firebaseConfig = {
 :exclamation: :exclamation:
 This app uses `Firebase 5.5.6`. It can be necessary to downgrade the firebase version to `4.12.1` in order to create the production .apk/.ipa
 
-## ITA :it:
+## ITA
 La seguente app per Ionic 3 utilizza il servizio di autenticazione e database di Firebase includendo le funzionalità:
 - Registrazione
 - Login 
