@@ -8,8 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthData } from '../../providers/auth/auth';
 import { EmailValidator } from '../../validators/email';
 import { ToastProvider } from '../../providers/toast/toast';
-
-import firebase from 'firebase'; // Per permettere di registrarmi su firebase
+import firebase from 'firebase';
 import { LoginPage } from '../login/login';
 
 /**
@@ -29,7 +28,6 @@ export class RegistrationPage {
   public signupForm: FormGroup;
   public loading: Loading;
 
-  //Per la funzione mostra/nascondi pw
   public type = 'password';
   public showPass = false;
 
@@ -42,13 +40,9 @@ export class RegistrationPage {
     public toastProvider: ToastProvider,
   ) {
     this.signupForm = formBuilder.group({
-      //Validazione per i campi della form.
-      email: ['',
-        Validators.compose([Validators.required, EmailValidator.isValid])],
-      password: ['',
-        Validators.compose([Validators.minLength(6), Validators.required])],
-      confirm_password: ['',
-        Validators.compose([Validators.minLength(6), Validators.required])]
+      email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+      confirm_password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
     }, {validator: this.authProvider.matchingPasswords('password', 'confirm_password')});
   }
 
@@ -56,7 +50,6 @@ export class RegistrationPage {
     console.log('ionViewDidLoad RegistrationPage');
   }
 
-  //Registrazione utente -> Richiama funzione in authProvider
   signupUser(){
     if (!this.signupForm.valid){
       console.log(this.signupForm.value);
@@ -66,15 +59,13 @@ export class RegistrationPage {
         this.loading.dismiss().then( () => {
           var user = firebase.auth().currentUser;
           user.sendEmailVerification();
-          this.toastProvider.presentToast("Ti è stata inviata una mail di conferma, per favore clicca sul link presente nella mail per poter effettuare l'accesso.");
+          this.toastProvider.presentToast("A confirmation email has been sent to you, click on the link in the email to be able to login.");
           this.navCtrl.setRoot(LoginPage);
         });
       }, (error) => {
         this.loading.dismiss().then( () => {
           let alert = this.alertCtrl.create({
-            //se si mette "message: error" si vede il messaggio di default in inglese.
-            //Questo è il caso in cui la mail sia già presente.
-            message: "Questa mail è già stata utilizzata",
+            message: "This email has already been used",
             buttons: [
               {
                 text: "Ok",
@@ -90,7 +81,6 @@ export class RegistrationPage {
     }
   }
 
-  //Per la funzione mostra/nascondi pw
   showPassword() {
     this.showPass = !this.showPass;
     if(this.showPass){

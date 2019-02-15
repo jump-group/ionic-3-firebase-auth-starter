@@ -22,15 +22,15 @@ import { ToastProvider } from '../providers/toast/toast'; //Per toast
   declarations: [
     MyApp,
     HomePage,
-    LoginPage, // Pagina login  
-    RegistrationPage, // Pagina registrazione
-    ResetpasswordPage, // Pagina reset password
+    LoginPage, 
+    RegistrationPage, 
+    ResetpasswordPage,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp, {
-      //Serve per evitare che al focus degli input la form si muova.
+      //Used to prevent the form from moving when the input is focused.
       scrollAssist: false, 
       autoFocusAssist: false, 
     }),
@@ -39,9 +39,9 @@ import { ToastProvider } from '../providers/toast/toast'; //Per toast
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage, // Pagina login  
-    RegistrationPage, // Pagina registrazione
-    ResetpasswordPage, // Pagina reset password
+    LoginPage,
+    RegistrationPage,
+    ResetpasswordPage,
   ],
   providers: [
     StatusBar,

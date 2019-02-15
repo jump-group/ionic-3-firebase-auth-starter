@@ -15,7 +15,27 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.btn_rounded{
-    width: 100%;
-    border-radius: 5px;
+.content_grid{
+    height: 100%;
 }
+
+.scroll-content{
+    background-color: map-get($colors, bg_lightblue);
+}
+
+.content_row{
+    height: 100%
+}
+
+.btn_rounded{
+    width: 50%;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn_row {
+    margin-top: 20px;
+}
+
+

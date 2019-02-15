@@ -47,7 +47,7 @@ export class ResetpasswordPage {
         this.authProvider.resetPassword(this.resetPasswordForm.value.email)
         .then((user) => {
           let alert = this.alertCtrl.create({
-            message: "Ti è appena stata mandata una mail di recupero password. Controlla la tua casella di posta.",
+            message: "A password recovery mail has just been sent to you. Check your inbox.",
             buttons: [
               {
                 text: "Ok",

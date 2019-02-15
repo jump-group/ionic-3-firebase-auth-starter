@@ -14,17 +14,15 @@ import {
   NavParams,
 } from 'ionic-angular';
 
-import * as firebase from 'firebase/app'; // Connessione a firebase
+import * as firebase from 'firebase/app';
 
-// Pagine custom
 import { HomePage } from '../home/home';
 import { RegistrationPage } from '../registration/registration';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 
-import { EmailValidator } from '../../validators/email'; // Per controllare che la mail rispetti la sua struttura
-import { AuthData } from '../../providers/auth/auth'; // Per gestire autenticazione utente
-
-import { ToastProvider } from '../../providers/toast/toast'; // Per toast di avvisi
+import { EmailValidator } from '../../validators/email'; 
+import { AuthData } from '../../providers/auth/auth'; 
+import { ToastProvider } from '../../providers/toast/toast'; 
 
 /**
  * Generated class for the LoginPage page.
@@ -45,7 +43,6 @@ export class LoginPage {
   public loginForm: FormGroup;
   public loading: Loading;
 
-  //Per funzione mostra/nascondi password
   public type = 'password';
   public showPass = false;
 
@@ -59,7 +56,7 @@ export class LoginPage {
     public toastProvider: ToastProvider,
   ) {
     this.loginForm = formBuilder.group({
-      //Per validare email e password nella form di login.
+      //Validate password and email
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
     });
@@ -78,7 +75,6 @@ export class LoginPage {
       .then( authData => {
         this.loading.dismiss().then( () => {
           this.checkIfEmailVerified(); 
-          //this.navCtrl.setRoot(HomePage);
         });
       }, error => {
         this.loading.dismiss().then( () => {
@@ -107,8 +103,6 @@ export class LoginPage {
     this.navCtrl.push(ResetpasswordPage);
   }
 
-  //Funzione mostra/nasconde password: 
-  //cambia il tipo del campo di input in base a se clicco o meno l'icona dell'occhio.
   showPassword() {
     this.showPass = !this.showPass; 
     if(this.showPass){
@@ -118,25 +112,24 @@ export class LoginPage {
     }
   }
 
-   //Serve per permette il login, ad utenti iscritti tramite email/pw, solo a chi ha confermato la mail di verifica.
+   //Only users that confirmed the email can login.
    checkIfEmailVerified(){
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        //Se c'è utente ma non ha cliccato sulla mail...
+        //YES USER | NO EMAIL VERIFIED 
         if (!user.emailVerified) {
-          this.toastProvider.presentToast('Per accedere è necessario confermare la registrazione cliccando sul link nella email di verifica inviata.');
+          this.toastProvider.presentToast('To login you must click on the confermation link sent by email.');
           unsubscribe();
         } else {
-          //Se l'utente c'è ed ha verificato la mail...
+          //YES USER | YES EMAIL VERIFIED 
           this.navCtrl.setRoot(HomePage);
           unsubscribe();
         }
       } else {
-        //Se l'utente non c'è vede la welcomepage...
+        //NO USER
         this.navCtrl.setRoot(LoginPage);
         unsubscribe();
       }  
     });
   }
-
 }
