@@ -31,7 +31,7 @@ export const firebaseConfig = {
 - Run ```ionic serve``` command.
 
 
-**Nota:** 
+:exclamation:
 This app uses `Firebase 5.5.6`
 It can be necessary to downgrade the firebase version to `4.12.1` in order to create the production .apk/.ipa
 
@@ -64,6 +64,6 @@ export const firebaseConfig = {
 ```
 - Eseguire ```ionic serve```
 
-**Nota bene:** 
+:exclamation:
 Questa versione dell'app utilizza `Firebase` versione `5.5.6.`
 Affinchè l'app venga correttamente compilata per la produzione, può essere necessario effettuare un downgrade a `4.12.1`
