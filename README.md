@@ -1,6 +1,5 @@
 
 # Readme Template firebase-auth
-![ionic_logo](https://user-images.githubusercontent.com/9347586/52865566-3ac0f100-313d-11e9-9efa-718d46afabe7.png)
 
 ## ENG
 The following app for Ionic 3 uses Firebase's database and authentication service and include the following features:
@@ -8,6 +7,7 @@ The following app for Ionic 3 uses Firebase's database and authentication servic
 - Login.
 - Logout.
 - Password Recovery.
+- Easy email and password validation.
 
 When a user sign-in to the application, a record is created in the database under the `/userProfile` (editable) tree with the field `uid` (unique) as the key.
 
@@ -40,6 +40,7 @@ La seguente app per Ionic 3 utilizza il servizio di autenticazione e database di
 - Login 
 - Logout
 - Recupero password.
+- Validazione password ed email.
 
 Quando un utente si registra nell'applicazione, viene creato un record all'interno del database nell'albero `/userProfile` (modificabile), con il campo `uid` (univoco) come chiave.
 
