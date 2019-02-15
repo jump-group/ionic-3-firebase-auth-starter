@@ -24,11 +24,15 @@
         
         <ion-card-content>
           <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
-            <ion-item >
+            <ion-item>
               <ion-label stacked>Email</ion-label>
               <ion-input formControlName="email" type="email" placeholder="Email" [class.invalid]="!loginForm.controls.email.valid && blur"></ion-input>
             </ion-item>
-        
+
+            <ion-item text-wrap class="error_notification" *ngIf="loginForm.controls.email.touched && !loginForm.controls.email.valid">  
+              <ion-icon name="close-circle" class="error_icon"></ion-icon> Incorrect or invalid email.
+            </ion-item>
+
             <ion-item>
               <ion-label stacked>Password</ion-label>
               <ion-input formControlName="password" type="{{type}}" placeholder="Password" [class.invalid]="!loginForm.controls.password.valid && blur"></ion-input>
@@ -42,8 +46,8 @@
           </form>
           
           <div class="row btn_row">
-            <div class="col col-50"> <button ion-button small block outline (click)="goToSignup()">Sign in</button></div>
-            <div class="col col-50">  <button ion-button small block outline (click)="goToResetPassword()">Forgot password?</button></div>
+            <div class="col col-50"> <button ion-button small block outline (click)="goToSignup()" class="btn_bottom">Sign in</button></div>
+            <div class="col col-50"> <button ion-button small block outline (click)="goToResetPassword()" class="btn_bottom">Forgot password?</button></div>
           </div>
         </ion-card-content>
       </ion-card>

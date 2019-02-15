@@ -38,4 +38,12 @@
     margin-top: 20px;
 }
 
+.invalid {
+    border-bottom: 1px solid map-get($colors, danger);
+}
+
+.error_notification {
+    color: map-get($colors, danger); 
+    font-size: 15px;
+}
 

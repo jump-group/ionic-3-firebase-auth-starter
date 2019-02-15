@@ -23,8 +23,8 @@
               </ion-input>
             </ion-item>
 
-            <ion-item text-wrap style="color: red !important; font-size: 15px;" class="error_notification" *ngIf="signupForm.controls.email.touched && !signupForm.controls.email.valid">  
-              <ion-icon name="close-circle" class="error_icon"></ion-icon> Mail non valida o non corretta
+            <ion-item text-wrap class="error_notification" *ngIf="signupForm.controls.email.touched && !signupForm.controls.email.valid">  
+              <ion-icon name="close-circle" class="error_icon"></ion-icon> Incorrect or invalid email.
             </ion-item>
 
             <ion-item>
@@ -35,9 +35,8 @@
             </ion-item>
 
             <ion-item text-wrap style="color: red !important; font-size: 15px;" *ngIf="signupForm.controls.password.touched && signupForm.controls.password.invalid">  
-              <ion-icon name="close-circle" class="error_icon"></ion-icon> La password deve essere lunga almeno 6 caratteri
+              <ion-icon name="close-circle" class="error_icon"></ion-icon> Password must be minimum 6 characters long.
             </ion-item>
-
 
             <ion-item>
               <ion-label stacked>Password di conferma</ion-label>
@@ -47,7 +46,7 @@
             </ion-item>
 
             <ion-item text-wrap style="color: red !important; font-size: 15px;" *ngIf="signupForm.controls.confirm_password.touched && signupForm.hasError('mismatchedPasswords')">  
-              <ion-icon name="close-circle" class="error_icon"></ion-icon> La password di conferma inserita non corrisponde a quella scelta.
+              <ion-icon name="close-circle" class="error_icon"></ion-icon> The confirm password doesn't match with the choosen one.
             </ion-item>
 
             <div class="row btn_row">
