@@ -30,12 +30,10 @@ export const firebaseConfig = {
 ```
 - Run ```ionic serve``` command.
 
+:exclamation: :exclamation:
+This app uses `Firebase 5.5.6`. It can be necessary to downgrade the firebase version to `4.12.1` in order to create the production .apk/.ipa
 
-:exclamation:
-This app uses `Firebase 5.5.6`
-It can be necessary to downgrade the firebase version to `4.12.1` in order to create the production .apk/.ipa
-
-## ITA
+## ITA :it:
 La seguente app per Ionic 3 utilizza il servizio di autenticazione e database di Firebase includendo le funzionalità:
 - Registrazione
 - Login 
@@ -64,6 +62,6 @@ export const firebaseConfig = {
 ```
 - Eseguire ```ionic serve```
 
-:exclamation:
+:exclamation: :exclamation:
 Questa versione dell'app utilizza `Firebase` versione `5.5.6.`
 Affinchè l'app venga correttamente compilata per la produzione, può essere necessario effettuare un downgrade a `4.12.1`
