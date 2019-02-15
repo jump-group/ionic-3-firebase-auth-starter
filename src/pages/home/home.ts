@@ -34,7 +34,7 @@ export class HomePage {
   logoutUser(){
     let alert = this.alertCtrl.create({
       title: 'Logout',
-      message: 'Vuoi davvero effettuare il logout?',
+      message: 'Are you sure?',
       buttons: [
         {
           text: 'Cancel',
@@ -43,7 +43,7 @@ export class HomePage {
           }
         },
         {
-          text: 'Conferma',
+          text: 'Confirm',
           handler: () => {
             this.navCtrl.setRoot(LoginPage);
             firebase.auth().signOut();
@@ -56,22 +56,22 @@ export class HomePage {
 
   changePw(){
     let alert = this.alertCtrl.create({
-      title: 'Cambio password',
-      message: "Inserisci la vecchia e nuova password",
+      title: 'Change password',
+      message: "Insert old and new password",
       inputs: [
         {
         name: "newPw", 
-        placeholder: "Nuova password",
+        placeholder: "New password",
         type: 'password'
         },
       { name: 'oldPw',
-        placeholder: 'Password corrente', 
+        placeholder: 'Old corrente', 
         type: 'password' }
       ],
       buttons: [
         { text: "Cancel" },
           {
-            text: "Conferma",
+            text: "Confirm",
             handler: data => {
               this.changePasswordOnDB(data.newPw, data.oldPw, this.user_email,this.user);
             }
@@ -85,29 +85,28 @@ export class HomePage {
     const credential: AuthCredential = firebase.auth.EmailAuthProvider.credential(user_email,oldPw);
     this.user.reauthenticateWithCredential(credential).then(user => {
       this.user.updatePassword(newPw).then(user => {
-        this.toastProvider.presentToast("Password modificata con successo.");
+        this.toastProvider.presentToast("Password modified successfully");
       });
     })
     .catch(error => {
-      this.toastProvider.presentToast("Il campo -password corrente- non corrisponde alla password attuale. Riprovare.");
+      this.toastProvider.presentToast("'Current password' field don't match with the current one. Retry.");
     });
   }
 
   changeEmail(){
     let alert = this.alertCtrl.create({
-      title: 'Cambio email',
-      //message: "Per cambiare mail, inserisci la nuova mail e la password corrente",
+      title: 'Change email',
       inputs: [
         {
         name: "newEmail",
-        placeholder: "Nuova mail",
+        placeholder: "New mail",
         },
-      { name: 'password', placeholder: 'Password corrente', type: 'password' }
+      { name: 'password', placeholder: 'Current password', type: 'password' }
       ],
       buttons: [
         { text: "Cancel" },
           {
-            text: "Conferma",
+            text: "Confirm",
             handler: data => {
               this.changeEmailOnDB(data.newEmail, data.password, this.user_email, this.user, this.user_id);
             }
