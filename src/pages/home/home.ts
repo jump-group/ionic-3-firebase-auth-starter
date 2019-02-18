@@ -3,7 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { AuthData } from '../../providers/auth/auth';
 import firebase from 'firebase';
 import { LoginPage } from '../login/login';
-import { User, AuthCredential } from '@firebase/auth-types';
+import { User} from '@firebase/auth-types';
 import { ToastProvider } from '../../providers/toast/toast';
 
 @Component({
@@ -31,6 +31,14 @@ export class HomePage {
       });
   }
 
+  changePw(){
+    this.authProvider.changePw(this.user);
+  }
+
+  changeEmail(){
+    this.authProvider.changeEmail(this.user);
+  }
+
   logoutUser(){
     let alert = this.alertCtrl.create({
       title: 'Logout',
@@ -52,88 +60,5 @@ export class HomePage {
       ]
     });
     alert.present();
-  }
-
-  changePw(){
-    let alert = this.alertCtrl.create({
-      title: 'Change password',
-      message: "Insert old and new password",
-      inputs: [
-        {
-        name: "newPw", 
-        placeholder: "New password",
-        type: 'password'
-        },
-      { name: 'oldPw',
-        placeholder: 'Old corrente', 
-        type: 'password' }
-      ],
-      buttons: [
-        { text: "Cancel" },
-          {
-            text: "Confirm",
-            handler: data => {
-              this.changePasswordOnDB(data.newPw, data.oldPw, this.user_email,this.user);
-            }
-          }
-      ]
-    });
-    alert.present();
-  }
-
-  changePasswordOnDB(newPw: string, oldPw: string, user_email: string,user){
-    const credential: AuthCredential = firebase.auth.EmailAuthProvider.credential(user_email,oldPw);
-    this.user.reauthenticateWithCredential(credential).then(user => {
-      this.user.updatePassword(newPw).then(user => {
-        this.toastProvider.presentToast("Password modified successfully");
-      });
-    })
-    .catch(error => {
-      this.toastProvider.presentToast("'Current password' field don't match with the current one. Retry.");
-    });
-  }
-
-  changeEmail(){
-    let alert = this.alertCtrl.create({
-      title: 'Change email',
-      inputs: [
-        {
-        name: "newEmail",
-        placeholder: "New mail",
-        },
-      { name: 'password', placeholder: 'Current password', type: 'password' }
-      ],
-      buttons: [
-        { text: "Cancel" },
-          {
-            text: "Confirm",
-            handler: data => {
-              this.changeEmailOnDB(data.newEmail, data.password, this.user_email, this.user, this.user_id);
-            }
-          }
-      ]
-    });
-    alert.present();
-  }
-
-   //Funzione per cambiare la mail dell'utente sul database e sul pannello di autenticazione di Firebase
-   changeEmailOnDB(newEmail: string, password: string, user_email: string, user, user_id){
-    const credential: AuthCredential = firebase.auth.EmailAuthProvider.credential(user_email,password);
-    //reauthenticateWithCredential(credential) -> metodo di firebase per riautenticare l'utente (necessario per il cambio mail)
-    //in automatico il metodo manda una email alla mail vecchia per segnalare il cambiamento.
-    this.user.reauthenticateWithCredential(credential).then(user => { 
-      this.user.updateEmail(newEmail).then(user => {
-   
-        //Aggiorniamo il campo email in chiaro del nuovo albero
-        var updates = {};
-        updates["/userProfile/"+user_id+"/email"] = newEmail;
-        firebase.database().ref().update(updates);
-        this.user.sendEmailVerification(); //necessario che l'utente riverifichi la mail dopo l'avvenuto cambiamento, per poter successivamente riloggare.
-        this.toastProvider.presentToast("Cambiamento avvenuto con successo! Ti è stata inviata una mail di conferma alla nuova email, per favore clicca sul link di verifica per poterti successivamente loggare con le nuove credenziali.");
-      });
-    })
-    .catch(error => {
-    console.error(error);
-    });
   }
 }
