@@ -39,8 +39,8 @@
             </ion-item>
 
             <ion-item>
-              <ion-label stacked>Password di conferma</ion-label>
-              <ion-input formControlName="confirm_password" type="{{type}}" placeholder="Password di conferma" [class.invalid]="!signupForm.controls.password.valid && blur"></ion-input>
+              <ion-label stacked>Confirmation password</ion-label>
+              <ion-input formControlName="confirm_password" type="{{type}}" placeholder="Confirmation password" [class.invalid]="!signupForm.controls.password.valid && blur"></ion-input>
               <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()" class="showHidePw_btn"> <ion-icon name="md-eye"></ion-icon></button>
               <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()" class="showHidePw_btn"> <ion-icon name="md-eye-off"></ion-icon></button>
             </ion-item>
@@ -51,7 +51,7 @@
 
             <div class="row btn_row">
               <button ion-button block type="submit" [disabled]="!signupForm.valid" class="btn_rounded">
-                Registrati
+                Sign-in
               </button>
             </div>
           </form>
