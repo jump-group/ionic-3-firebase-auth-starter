@@ -1,7 +1,6 @@
 
 # Readme Template firebase-auth
-![screen](https://user-images.githubusercontent.com/9347586/52945075-33822900-3371-11e9-962d-f36fe74a5d79.png)
-
+![screen](https://user-images.githubusercontent.com/9347586/52945156-60ced700-3371-11e9-8124-a487e74b49c1.png)
 
 ## ENG
 The following app for Ionic 3 uses Firebase's database and authentication service and include the following features:
