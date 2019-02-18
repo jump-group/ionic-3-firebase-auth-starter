@@ -11,7 +11,7 @@ The following app for Ionic 3 uses Firebase's database and authentication servic
 - Change user password.
 - Easy email and password validation.
 
-When a user sign-in to the application, a record is created in the database under the `/userProfile` (editable) tree with the field `uid` (unique) as the key.
+When a user sign-in to the application, a record is created in the database under the `/userProfile` (editable) tree with the field `uid` (unique) as the key. So, it is possible to store all the user informations at this identifier.
 
 ### How to start
 - Clone the repository.
@@ -47,7 +47,7 @@ La seguente app per Ionic 3 utilizza il servizio di autenticazione e database di
 - Cambio password
 - Validazione password ed email
 
-Quando un utente si registra nell'applicazione, viene creato un record all'interno del database nell'albero `/userProfile` (modificabile), con il campo `uid` (univoco) come chiave.
+Quando un utente si registra nell'applicazione, viene creato un record all'interno del database nell'albero `/userProfile` (modificabile), con il campo `uid` (univoco) come chiave. E' possibile quindi inserire sotto tale identificatore tutte le informazione dell'utente.
 
 ### Funzionamento
 - Clonare la repository.
