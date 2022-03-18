@@ -23,7 +23,7 @@
     "@ionic-native/core": "~4.15.0",
     "@ionic-native/splash-screen": "~4.15.0",
     "@ionic-native/status-bar": "~4.15.0",
-    "@ionic/storage": "2.2.0",
+    "@ionic/storage": "3.0.6",
     "cordova-android": "7.0.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
